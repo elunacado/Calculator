@@ -7,8 +7,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine', 'ejs');
 
 app.get('/',(req,res) => {
-    res.render('calculator');
-})
+    res.render('calculator', { result: '' });})
 
 app.post('/calculate',(req,res) => {
     const num1 = parseInt(req.body.num1);
@@ -42,4 +41,8 @@ app.post('/calculate',(req,res) => {
         result = "Invalid Operation";
     }
     res.render('calculator',{result:result});
+});
+
+app.listen(3000,(res) => {
+    console.log("10-4 on port 3000")
 });

@@ -1,14 +1,53 @@
-<h1>Calculator</h1>
-<form action="/calculate" method="post">
-  <input type="text" name="num1" placeholder="Number 1" />
-  <input type="text" name="num2" placeholder="Number 2" />
-  <button type="submit" name="operation" value="add">Add</button>
-  <button type="submit" name="operation" value="subtract">Subtract</button>
-  <button type="submit" name="operation" value="multiply">Multiply</button>
-  <button type="submit" name="operation" value="divide">Divide</button>
-  <button type="submit" name="operation" value="exponential"> Exponential </button>
-</form>
-<div>
-    Result:  
-    <span id="result"> <%= result %> </span>
-</div>
+<!DOCTYPE html>
+<html lang="en" data-theme="light" >
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title has-text-centered">Calculator</h1>
+        <div class="box">
+            <form action="/calculate" method="post">
+                <div class="field">
+                    <label class="label">Number 1</label>
+                    <div class="control">
+                        <input class="input" type="text" name="num1" placeholder="Enter number 1">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Number 2</label>
+                    <div class="control">
+                        <input class="input" type="text" name="num2" placeholder="Enter number 2">
+                    </div>
+                </div>
+                <div class="field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <button class="button is-primary" type="submit" name="operation" value="add">Add</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-link" type="submit" name="operation" value="subtract">Subtract</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-info" type="submit" name="operation" value="multiply">Multiply</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-success" type="submit" name="operation" value="divide">Divide</button>
+                    </p>
+                    <p class="control">
+                        <button class="button is-warning" type="submit" name="operation" value="exponential">Exponential</button>
+                    </p>
+                </div>
+            </form>
+            <div>
+                Result:  
+                <span id="result"> <%= result %> </span>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
