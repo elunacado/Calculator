@@ -1,20 +1,28 @@
 const express = require('express');
-const bodyparser= require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 
-app.use(bodyparser.urlencoded({extended:true}));
+// Configuración básica para permitir el procesamiento de datos de formulario
+app.use(bodyParser.urlencoded({extended:true}));
 
+// Establece EJS como motor de plantillas para renderizar vistas
 app.set('view engine', 'ejs');
 
+// Ruta raíz que renderiza la calculadora con un resultado inicial vacío
 app.get('/',(req,res) => {
-    res.render('calculator', { result: '' });})
+    res.render('calculator', { result: '' });
+})
 
+// Ruta que maneja la lógica de cálculo en base a la operación solicitada
 app.post('/calculate',(req,res) => {
+    // Convierte los valores de entrada a enteros
     const num1 = parseInt(req.body.num1);
     const num2 = parseInt(req.body.num2);
+    // Obtiene el operador de la solicitud
     const operator = req.body.operation;
-    let result;
+    let result; // Variable para almacenar el resultado
 
+    // Switch para determinar la operación a realizar
     switch(operator){
         case "add":
         result = num1 + num2;
@@ -31,7 +39,6 @@ app.post('/calculate',(req,res) => {
             break;
         }else{
             result = num1 / num2;
-
         }
         break;
         case "exponential":
