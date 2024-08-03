@@ -1,0 +1,14 @@
+<h1>Calculator</h1>
+<form action="/calculate" method="post">
+  <input type="text" name="num1" placeholder="Number 1" />
+  <input type="text" name="num2" placeholder="Number 2" />
+  <button type="submit" name="operation" value="add">Add</button>
+  <button type="submit" name="operation" value="subtract">Subtract</button>
+  <button type="submit" name="operation" value="multiply">Multiply</button>
+  <button type="submit" name="operation" value="divide">Divide</button>
+  <button type="submit" name="operation" value="exponential"> Exponential </button>
+</form>
+<div>
+    Result:  
+    <span id="result"> <%= result %> </span>
+</div>
